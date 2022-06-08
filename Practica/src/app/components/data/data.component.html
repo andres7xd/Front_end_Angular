@@ -1,0 +1,87 @@
+
+
+  <div>
+    <mat-form-field appearance="fill" >
+      <mat-label>Usuario ID</mat-label>
+      <input matInput [(ngModel)]="newData.userId" type="string" placeholder="userID">
+      <input matInput>
+    </mat-form-field>
+ 
+
+    <mat-form-field appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput [(ngModel)]="newData.id" type="string" placeholder="id">
+      <input matInput>
+    </mat-form-field>
+  
+  
+ 
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="newData.title" type="string" placeholder="title">
+      <input matInput>
+    </mat-form-field>
+  
+  
+
+    <mat-form-field appearance="fill">
+      <mat-label>Completed</mat-label>
+      <input matInput [(ngModel)]="newData.completed" type="string" placeholder="completed?">
+      <input matInput>
+    </mat-form-field>
+
+    
+    <button mat-flat-button color="accent"(click)="AddData()">Add Data</button>
+  </div>
+  
+
+  
+
+
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef>User id</th>
+      <td mat-cell *matCellDef="let element">{{element.userId}}</td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{element.title}}</td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="completed">
+      <th mat-header-cell *matHeaderCellDef>Completed</th>
+      <td mat-cell *matCellDef="let element">{{element.completed}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>action</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-flat-button color="primary"(click)="EditData(element.id)">Edit</button>
+        &nbsp;
+        <button mat-flat-button color="warn"(click)="DeleteData(element.id)">Delete</button>
+      
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+   
+  </table>
+  
+  
+  
+  
+  
+  
